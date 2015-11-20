@@ -3,15 +3,16 @@
 /*               strlength                */
 /******************************************/
 
-char strlength(){
+char strlength(char array1[], int N){
+  int i;
   for( i = 0; array1[i] != '\0'; i++);
-  return i-1;  
+  return i-1;
 }
 
 /******************************************/
 /*               strmirror                */
 /******************************************/
-
+/*
 char strmirror(){
   
   char array2[N]={0};
@@ -26,11 +27,11 @@ char strmirror(){
   printf("\n%s", array1);
   printf("\n\n");
 }
-
+*/
 /******************************************/
 /*               strsearch                */
 /******************************************/
-
+/*
 char strsearch(){
 
   for( i = 0; array3[i] != '\0'; i++);
@@ -64,11 +65,11 @@ char strsearch(){
   }                                                    
   
 }
-
+*/
 /******************************************/
 /*               strreplace               */
 /******************************************/ 
-
+/*
 char strreplace(){
 
   for( i = 0; array4[i] != '\0'; i++);
@@ -86,3 +87,4 @@ char strreplace(){
   }                             
   
 }
+*/
