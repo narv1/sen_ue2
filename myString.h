@@ -18,7 +18,7 @@ int strmirror( char array1[], int N ){
   int k = 0, i = 0;
   for( i = 0; array1[i] != '\0'; i++);
    while( array1[k] != '\0'){
-    array2[i]= array1[k];
+    array2[i]= array1[k-1];
     i--;
     k++;
   }

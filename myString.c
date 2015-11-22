@@ -1,6 +1,25 @@
+/*******************************************************************************************/
+/*                           Willkommen zum ersten Projekt!                                */
+/*               Dieses Programm zielt darauf ab einen besseren Umgang mit:                */
+/*                          Übungen mit Vektoren und Matrizen                              */
+/*                                     -Arrays                                             */
+/*                    -Verbesserung der Eingabe der Stringzerlegung                        */
+/*                   -Berechnung einfacher mathematischer Sachverhalte                     */
+/*                          -String zerlegung bzw. handling                                */
+/*******************************************************************************************/
 
 
+/*******************************************************************************************/
+/*                               Author: Stefan Hermeter                                   */
+/*                                  Klasse:5/6 ABETI                                       */
+/*                                 Datum:  14.11.2015                                      */
+/*******************************************************************************************/
 
+
+/*****************************************/
+/*      Die verwendeten Libaries         */
+/* bzw. die maximale Anzahl der Vektoren */
+/*****************************************/
 #include <stdio.h>
 #include <stdlib.h>
 #define N 200
@@ -10,9 +29,6 @@ int main (){
   int i = 0;
   char array1[N]={0};
 
-  //char *p;
-  //  p = &array1[N];
-  
   fgets( array1, N, stdin);
 
   /******************************************/
@@ -24,9 +40,7 @@ int main (){
   i = i -1;
   l = i;
 
-  printf("%d", l);
-  
-  printf("\n%d\n", i);
+  printf("\n%d", i);
   
   char array2[N]={0};
 
