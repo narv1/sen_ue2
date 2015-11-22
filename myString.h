@@ -3,40 +3,46 @@
 /*               strlength                */
 /******************************************/
 
-char strlength(char array1[], int N){
+int strlength( char array1[], int N ){
   int i;
   for( i = 0; array1[i] != '\0'; i++);
-  return i-1;
+  return i;
 }
 
 /******************************************/
 /*               strmirror                */
 /******************************************/
-/*
-char strmirror(){
-  
-  char array2[N]={0};
-  
-  while( array1[k] != '\0'){
+
+int strmirror( char array1[], int N ){
+  char array2[N];
+  int k = 0, i = 0;
+  for( i = 0; array1[i] != '\0'; i++);
+   while( array1[k] != '\0'){
     array2[i]= array1[k];
     i--;
     k++;
-    }
+  }
 
-  printf("\n%s", array2);
-  printf("\n%s", array1);
-  printf("\n\n");
+   printf("Der gespiegelte String lautet:\n%s\n", array2);
+   return 0;
 }
-*/
+
 /******************************************/
 /*               strsearch                */
 /******************************************/
-/*
-char strsearch(){
 
-  for( i = 0; array3[i] != '\0'; i++);
-  b = i;
-  b = b - 1;
+int strsearch( char array1[], int N ){
+
+  int i, b, l;
+  char array2[N];
+  printf("\nBitte geben sie den gewünschten zusuchenden Begriff ein: ");
+  fgets( array2, N, stdin );
+
+  for( i = 0; array1[i] != '\0'; i++);
+  for( b = 0; array2[b] != '\0'; b++);
+  b --; 
+  l = i;
+  l --;
 
   int a = 0, j;
 
@@ -50,8 +56,8 @@ char strsearch(){
       break;
     }
     for( j = 0; j < b; j++){
-      if( array1[i] == array3[j] ){
-	if( array1[i+b-1] == array3[j+b-1] ){
+      if( array1[i] == array2[j] ){
+	if( array1[i+b-1] == array2[j+b-1] ){
 	  a++;
 	  i++;
 	}
@@ -63,28 +69,41 @@ char strsearch(){
       }
     }
   }                                                    
-  
+  return 0;
 }
-*/
+
 /******************************************/
 /*               strreplace               */
 /******************************************/ 
-/*
-char strreplace(){
 
-  for( i = 0; array4[i] != '\0'; i++);
+int strreplace( char array1[], int N ){
 
-  //a = a - 1;
+  int i, a, b;
+  char array2[N];
 
-  i = i - 1;
+  
+  printf("Ab welcheer Stelle möchten sie den string ersetzen: ");
+  scanf("%d", &a);
 
-  //b = a + i;
+  getchar();
+
+  printf("Schreiben sie was sie ersetzen wollen: ");
+  fgets(array2, N, stdin);
+
+  for( i = 0; array2[i] != '\0'; i++ );
+  
+  a = a - 1;
+
+  i = i - 2;
+
+  b = a + i;
 
   for( b = a + i; a - 1 < b; b--){
 
-    array1[b-1] = array4[i];
+    array1[b] = array2[i];
     i--;
-  }                             
-  
+  }
+  printf("%s", array1);
+  return 0;
 }
-*/
+
