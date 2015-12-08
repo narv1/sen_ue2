@@ -1,4 +1,3 @@
-
 /*******************************************************************************************/
 /*                           Willkommen zum ersten Projekt!                                */
 /*               Dieses Programm zielt darauf ab einen besseren Umgang mit:                */
@@ -20,6 +19,7 @@
 /* bzw. die maximale Anzahl der Vektoren */
 /*****************************************/ 
 #include <stdlib.h>
+#include <stdbool.h>
 #include <stdio.h>
 #include "myString.h"
 #define N 200
@@ -39,7 +39,7 @@ int main (){
   /********************************************/
   /* Schleife zum abfangen des Eingabefehlers */
   /********************************************/
-  while( prog = '0' ){
+  while( true){
     prog = getchar();
     getchar();
     if( prog <= '5' && prog >= '1' ){
@@ -110,8 +110,8 @@ int main (){
     k = strlength(test);
     printf("Was soll eingesetzt werden:\n");
     fgets(ostr, N, stdin);
-
     k =  strreplace(N,  test, i, ostr, j, k);
+    printf("k = %d\n", k);
   }
 
   /************************/
