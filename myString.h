@@ -1,29 +1,26 @@
-/* include guard */
+/*********************/
+/*   include guard   */
+/*********************/
 #ifndef MYSTRING_H
 #define MYSTRING_H
-
-#include <stdio.h>
-
 
 /******************************************/
 /*               strlength                */
 /******************************************/
-
-int strlength( const char array1[] ){
+int strlength(const char array1[]){
   int i;
-  for( i = 0; array1[i] != '\0'; i++);
+  for(i = 0; array1[i] != '\0'; i++);
   return i;
 }
 
 /******************************************/
 /*               strmirror                */
 /******************************************/
-
-int strmirror( char array1[], int N ){
+int strmirror(char array1[], int N){
   char array2[N];
   int k = 0, i = 0;
-  for( i = 0; array1[i] != '\0'; i++);
-   while( array1[k] != '\0'){
+  for(i = 0; array1[i] != '\0'; i++);
+   while(array1[k] != '\0'){
     array2[i]= array1[k-1];
     i--;
     k++;
@@ -36,8 +33,7 @@ int strmirror( char array1[], int N ){
 /******************************************/
 /*               strsearch                */
 /******************************************/
-
-int strsearch( const char str[], int maxsearch, const char sstr[] ){
+int strsearch(const char str[], int maxsearch, const char sstr[]){
   if (strlength(sstr) <= strlength(str))
     for (int i = 0; i < maxsearch; i++)
       for (int j = 0; j < strlength(sstr); j++) {
@@ -53,18 +49,17 @@ int strsearch( const char str[], int maxsearch, const char sstr[] ){
 /******************************************/
 /*               strreplace               */
 /******************************************/ 
-
-int strreplace(int N ,const char array1[], int i, const char array2[], int j, int k){
+int strreplace(int N ,const char str[], int i, const char sstr[], int j, int k){
   char array3[N];
   int a;
 
   for(a = 0; a < k; a++){
-    array3[a] = array1[a];
+    array3[a] = str[a];
   }
 
 
   for(a = 0; a < j; a++){
-    array3[i] = array2[a];
+    array3[i] = sstr[a];
     i++;
   }
   
@@ -75,7 +70,6 @@ int strreplace(int N ,const char array1[], int i, const char array2[], int j, in
 /******************************************/
 /*               strsubstr                */
 /******************************************/ 
-
 int strsubstr( char dstr[], unsigned dstrsize, const char sstr[], unsigned startpos, unsigned len ){
   if (dstrsize >= len + 1 && startpos > 0) {
     startpos--;

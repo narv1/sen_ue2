@@ -67,7 +67,7 @@ int main (){
   /*****************************/
   int i;
 
-  if( prog == 49 ){
+  if(prog == 49){
     // Ausgabe des Rückgabewertes
     i = strlength(test);
     printf("Die länge des arrays ist: %d\n", i-1);
@@ -76,7 +76,7 @@ int main (){
   /*************************/
   /*       strmirror       */
   /*************************/  
-  if ( prog == 50 ){
+  if (prog == 50){
     //    strlength( test, N );
     i =strmirror(test, N);
   }
@@ -84,13 +84,13 @@ int main (){
   /*************************/
   /*       strsearch       */
   /*************************/
-  if( prog == 51 ){
+  if(prog == 51){
     printf("Nach was soll gesucht werden:\n");
     fgets(test2, N, stdin);
     i = strsearch(test, N, test2);
 
-    if( i == -1){
-      printf("Es ist ein Fehler aufgetreten.");
+    if(i == -1){
+      printf("Es ist ein Fehler aufgetreten.\n");
     }else{
     printf("Das Wort befindet sich an der %d stelle\n", i+1);
     }
@@ -102,7 +102,7 @@ int main (){
   int j, k;
   char ostr[N];
   
-  if( prog == 52 ){
+  if(prog == 52){
     printf("Was soll ersetzt werden:\n");
     fgets(test2, N, stdin);
     i = strsearch(test, N, test2);
@@ -117,9 +117,9 @@ int main (){
   /************************/
   /*       strsubstr      */
   /************************/
-  /*
-  strsubstr();
-
+  /*  if(prog == 52){
+    strsubstr();
+  }
   */
 
   return 0;
