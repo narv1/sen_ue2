@@ -1,9 +1,15 @@
+/* include guard */
+#ifndef MYSTRING_H
+#define MYSTRING_H
+
+#include <stdio.h>
+
 
 /******************************************/
 /*               strlength                */
 /******************************************/
 
-int strlength( char array1[], int N ){
+int strlength( const char array1[] ){
   int i;
   for( i = 0; array1[i] != '\0'; i++);
   return i;
@@ -31,79 +37,59 @@ int strmirror( char array1[], int N ){
 /*               strsearch                */
 /******************************************/
 
-int strsearch( char array1[], int N ){
-
-  int i, b, l;
-  char array2[N];
-  printf("\nBitte geben sie den gewünschten zusuchenden Begriff ein: ");
-  fgets( array2, N, stdin );
-
-  for( i = 0; array1[i] != '\0'; i++);
-  for( b = 0; array2[b] != '\0'; b++);
-  b --; 
-  l = i;
-  l --;
-
-  int a = 0, j;
-
-  for( i = 0; i < l; i++){
-    if( b == 1){
-      printf("Sie haben leider nur einen einzelnen Buchstaben eingegeben.\nDas Programm endet jetzt!\n");
-      break;
-    }
-    if( l < b ){
-      printf("Das zu suchende Wort ist groeszer als der Text selbst.\nDas ist nicht moeglich.\nDas Programm beendet sich jetzt.\n");
-      break;
-    }
-    for( j = 0; j < b; j++){
-      if( array1[i] == array2[j] ){
-	if( array1[i+b-1] == array2[j+b-1] ){
-	  a++;
-	  i++;
-	}
+int strsearch( const char str[], int maxsearch, const char sstr[] ){
+  if (strlength(sstr) <= strlength(str))
+    for (int i = 0; i < maxsearch; i++)
+      for (int j = 0; j < strlength(sstr); j++) {
+	if (str[i + j] != sstr[j])
+	  break;
+	if (sstr[j + 1] == 0)
+	  return i;
       }
-      if( b == a){
-	printf("\nDas Wort fängt an der Stelle %d und endet bei %d!", i-b+1, i );
-	printf("\nEs ist %d Buchstaben lang\n", b);
-	break;
-      }
-    }
-  }                                                    
-  return 0;
+
+  return -1;
 }
 
 /******************************************/
 /*               strreplace               */
 /******************************************/ 
 
-int strreplace( char array1[], int N ){
+int strreplace(int N ,const char array1[], int i, const char array2[], int j, int k){
+  char array3[N];
+  int a;
 
-  int i, a, b;
-  char array2[N];
-
-  
-  printf("Ab welcheer Stelle möchten sie den string ersetzen: ");
-  scanf("%d", &a);
-
-  getchar();
-
-  printf("Schreiben sie was sie ersetzen wollen: ");
-  fgets(array2, N, stdin);
-
-  for( i = 0; array2[i] != '\0'; i++ );
-  
-  a = a - 1;
-
-  i = i - 2;
-
-  b = a + i;
-
-  for( b = a + i; a - 1 < b; b--){
-
-    array1[b] = array2[i];
-    i--;
+  for(a = 0; a < k; a++){
+    array3[a] = array1[a];
   }
-  printf("%s", array1);
+
+
+  for(a = 0; a < j; a++){
+    array3[i] = array2[a];
+    i++;
+  }
+  
+  printf("%s", array3);
+  return -1;
+}
+
+/******************************************/
+/*               strsubstr                */
+/******************************************/ 
+
+int strsubstr( char dstr[], unsigned dstrsize, const char sstr[], unsigned startpos, unsigned len ){
+  if (dstrsize >= len + 1 && startpos > 0) {
+    startpos--;
+    unsigned i;
+    for (i = 0; i < len; i++)
+      if (sstr[startpos + i] != 0)
+	dstr[i] = sstr[startpos + i];
+      else
+	break;
+    i++;
+    dstr[i] = 0;
+    return i;
+  }
   return 0;
 }
 
+#endif

@@ -2,10 +2,9 @@
 /*******************************************************************************************/
 /*                           Willkommen zum ersten Projekt!                                */
 /*               Dieses Programm zielt darauf ab einen besseren Umgang mit:                */
-/*                          Übungen mit Vektoren und Matrizen                              */
 /*                                     -Arrays                                             */
-/*                    -Verbesserung der Eingabe der Stringzerlegung                        */
-/*                   -Berechnung einfacher mathematischer Sachverhalte                     */
+/*                   -Verbesserung der Eingabe einer Stringzerlegung                       */
+/*                  -Berechnung einfacher mathematischer Sachverhalte                      */
 /*******************************************************************************************/
 
 
@@ -30,13 +29,16 @@
 /**********************************/
 int main (){
 
-  printf("Dieses Programm testet die Bibliothek der 1.Uebung.\n");  //Erklärung
+  printf("Dieses Programm testet die Bibliothek der 1.Uebung 'myString.h'.\n");  //Erklärung
 
   char prog = '0';
-  char  test[N];
+  char  test[N], test2[N];
 
   printf("Welches Programm möchten sie ausfuehren?\nDruecken sie die\n1 fuer strlength\n2 fuer strmirror\n3 fuer strsearch\n4 fuer strreplace\n5 fuer strsubstr\n");
-  // Schleife zum abfangen eines Fehlers
+  
+  /********************************************/
+  /* Schleife zum abfangen des Eingabefehlers */
+  /********************************************/
   while( prog = '0' ){
     prog = getchar();
     getchar();
@@ -49,11 +51,14 @@ int main (){
   /****************************/
   /*  Bestätigung der Eingabe */
   /****************************/
-  if( prog >= 1 || prog <= 2){
+  if( prog >= '1' && prog <= '5'){
     printf("Sie haben sich für die Nr. %c entschieden\n" , prog);
   }
   
-  // Befüllung des Arrays  
+
+  /*************************/
+  /*  Befüllen des Arrays  */
+  /*************************/  
   printf("Geben sie einen gewünschten String ein: \n");
   fgets(test, N, stdin);
 
@@ -64,7 +69,7 @@ int main (){
 
   if( prog == 49 ){
     // Ausgabe des Rückgabewertes
-    i = strlength(test, N);
+    i = strlength(test);
     printf("Die länge des arrays ist: %d\n", i-1);
   }
   
@@ -80,17 +85,38 @@ int main (){
   /*       strsearch       */
   /*************************/
   if( prog == 51 ){
-    i = strsearch(test, N);
+    printf("Nach was soll gesucht werden:\n");
+    fgets(test2, N, stdin);
+    i = strsearch(test, N, test2);
+
+    if( i == -1){
+      printf("Es ist ein Fehler aufgetreten.");
+    }else{
+    printf("Das Wort befindet sich an der %d stelle\n", i+1);
+    }
   }
 
   /*************************/
   /*       strreplace      */
   /*************************/
+  int j, k;
+  char ostr[N];
   
   if( prog == 52 ){
-    i =  strreplace(test, N);
+    printf("Was soll ersetzt werden:\n");
+    fgets(test2, N, stdin);
+    i = strsearch(test, N, test2);
+    j = strlength(test2);
+    k = strlength(test);
+    printf("Was soll eingesetzt werden:\n");
+    fgets(ostr, N, stdin);
+
+    k =  strreplace(N,  test, i, ostr, j, k);
   }
 
+  /************************/
+  /*       strsubstr      */
+  /************************/
   /*
   strsubstr();
 
