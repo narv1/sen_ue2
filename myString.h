@@ -4,6 +4,8 @@
 #ifndef MYSTRING_H
 #define MYSTRING_H
 
+#include <stdio.h>
+
 /******************************************/
 /*               strlength                */
 /******************************************/
@@ -20,10 +22,9 @@ int strmirror(char array1[], int N){
   char array2[N];
   int k = 0, i = 0;
   for(i = 0; array1[i] != '\0'; i++);
-   while(array1[k] != '\0'){
-    array2[i]= array1[k-1];
+   while(array1[k++] != '\0'){
+    array2[i]= array1[k-2];
     i--;
-    k++;
   }
 
    printf("Der gespiegelte String lautet:\n%s\n", array2);

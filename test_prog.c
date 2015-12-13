@@ -117,10 +117,15 @@ int main (){
   /************************/
   /*       strsubstr      */
   /************************/
-  /*  if(prog == 52){
-    strsubstr();
+  if(prog == 52){
+    printf("Was soll kopiert werden:\n");
+    fgets(test2, N, stdin);
+    i = strsearch(test, N, test2);
+    j = strlength(test2);
+    k = strlength(test);
+    strsubstr(test2, j, test, i);
   }
-  */
+  
 
   return 0;
 }
