@@ -61,7 +61,7 @@ int main (){
   /*************************/  
   printf("Geben sie einen gewünschten String ein: \n");
   fgets(test, N, stdin);
-
+  
   /*****************************/
   /*         strlength         */
   /*****************************/
@@ -69,8 +69,12 @@ int main (){
 
   if(prog == 49){
     // Ausgabe des Rückgabewertes
-    i = strlength(test);
+    i = strlength(test, N);
+    if( i == -1){
+      printf("Es ist ein Fehler aufgetreten!\n");
+    }else{
     printf("Die länge des arrays ist: %d\n", i-1);
+    }
   }
   
   /*************************/
@@ -100,31 +104,28 @@ int main (){
   /*       strreplace      */
   /*************************/
   int j, k;
-  char ostr[N];
+  char nstr[N], dstr[N];
   
   if(prog == 52){
     printf("Was soll ersetzt werden:\n");
     fgets(test2, N, stdin);
-    i = strsearch(test, N, test2);
-    j = strlength(test2);
-    k = strlength(test);
     printf("Was soll eingesetzt werden:\n");
-    fgets(ostr, N, stdin);
-    k =  strreplace(N,  test, i, ostr, j, k);
+    fgets(nstr, N, stdin);
+    k =  strreplace(dstr, N,  test, test2, nstr);
     printf("k = %d\n", k);
   }
 
   /************************/
   /*       strsubstr      */
   /************************/
-  if(prog == 52){
+  if(prog == 53){
     printf("Was soll kopiert werden:\n");
     fgets(test2, N, stdin);
     i = strsearch(test, N, test2);
-    j = strlength(test2);
-    k = strlength(test);
-    strsubstr(test2, j, test, i);
-  }
+    j = strlength(test2, N);
+    k = strlength(test2, N);
+    strsubstr(dstr, N, test, i, k);
+    }
   
 
   return 0;
