@@ -103,7 +103,7 @@ int main (){
   /*************************/
   /*       strreplace      */
   /*************************/
-  int j, k;
+  int j;
   char nstr[N], dstr[N];
   
   if(prog == 52){
@@ -111,8 +111,7 @@ int main (){
     fgets(test2, N, stdin);
     printf("Was soll eingesetzt werden:\n");
     fgets(nstr, N, stdin);
-    k =  strreplace(dstr, N,  test, test2, nstr);
-    printf("k = %d\n", k);
+    j =  strreplace(dstr, N,  test, test2, nstr);
   }
 
   /************************/
@@ -123,8 +122,7 @@ int main (){
     fgets(test2, N, stdin);
     i = strsearch(test, N, test2);
     j = strlength(test2, N);
-    k = strlength(test2, N);
-    strsubstr(dstr, N, test, i, k);
+       strsubstr(dstr, N, test, i, j);
     }
   
 

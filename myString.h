@@ -10,18 +10,8 @@
 /*               strlength                */
 /******************************************/
 int strlength(const char array1[], int n){
-  int i, k;
+  int i;
 
-  // Überprüfung mit dem '\0'. falls die Arraygröße überschritten wurde
-  for(i = 0; i < n; i++){
-    if(array1[i] != '\0'){
-      k++;
-      if(k >= n-2){
-	return -1;
-      }
-    }
-  }
-  
   // Zähler der Stringlänge
   for(i = 0; array1[i] != '\0'; i++);
   return i;
@@ -99,7 +89,7 @@ int strreplace(char dstr[], int n ,const char sstr[], const char str[],const cha
     }
     dstr[i + a] = sstr[i + m];
   }
-  printf("\n%s\n", dstr);
+  printf("\n%s", dstr);
 
   i = strlength(dstr, n);
   
@@ -110,17 +100,21 @@ int strreplace(char dstr[], int n ,const char sstr[], const char str[],const cha
 /*               strsubstr                */
 /******************************************/ 
 int strsubstr( char dstr[], unsigned dstrsize, const char sstr[], unsigned startpos, unsigned len ){
+
+  // erste kontrolle der eingaben
   if (dstrsize >= len + 1 && startpos > 0) {
-    startpos--;
     unsigned i;
+    startpos--;
+    // schleife zum kopieren des ersten in den zweiten String
     for (i = 0; i < len; i++)
-      /* if (sstr[startpos + i] != 0 || sstr[startpos + i] != 10) */
       if (sstr[startpos + i] != 0 || sstr[startpos + i] != 10)
 	dstr[i] = sstr[startpos + i];
+    // bei Fehlerfall break and return 0
       else
 	break;
     i++;
     dstr[i] = 0;
+    printf("%s\n", dstr);
     return i;
   }
   return 0;
